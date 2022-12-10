@@ -1,0 +1,4 @@
+web: yarn web:dev
+js: yarn build:js --watch
+css: yarn build:css --watch
+

@@ -1,0 +1,27 @@
+source "https://rubygems.org"
+
+git_source(:github) { |repo| "https://github.com/#{ repo }.git" }
+
+ruby "2.7.6"
+
+gem "agoo", "~> 2.15.3"
+gem "dotenv"
+gem "thin"
+gem "pry"
+gem "pry-remote"
+gem "rainbow", "~> 3.1"
+gem "foreman", "~> 0.87.2"
+gem "activesupport", "~> 7.0.3.1"
+gem "capybara", "~> 3.38"
+gem "capybara-mechanize", "~> 1.12"
+gem "database_cleaner-active_record", "~> 1.8.0"
+gem "rspec", "~> 3.11"
+gem "rspec-retry", "~> 0.6"
+gem "rubocop", "~> 1.35"
+gem "rubocop-rspec", "~> 2.12"
+gem "selenium-webdriver", "~> 3.142.7"
+gem "spellr", "~> 0.11"
+gem "to_bool", "~> 2.0"
+gem "webdrivers", "4.4.1"
+gem "webmock", "~> 3.17"
+gem 'apparition', "~> 0.6.0"

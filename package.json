@@ -1,0 +1,39 @@
+{
+  "name": "@fera/fera-js",
+  "version": "0.1.0",
+  "description": "Display and collect customer reviews, photos and videos on your website.",
+  "repository": "https://github.com/feracommerce/fera-js",
+  "author": "Fera Commerce Inc",
+  "license": "MPL-2.0",
+  "private": false,
+  "dependencies": {
+    "sass": "^1.54"
+  },
+  "scripts": {
+    "build:css": "sass ./scss/index.scss:./dist/index.css --no-source-map --load-path=node_modules",
+    "dev:css": "yarn build:css --watch",
+    "build:js": "esbuild js/index.js --bundle --sourcemap --outdir=dist --public-path=assets",
+    "dev:js": "yarn build:js --watch",
+    "build": "yarn build:css && yarn build:js && cp -rpf fonts dist",
+    "lint": "./bin/check_code",
+    "web:dev": "bundle exec rackup -p ${WEB_PORT:-3007} -E ${RACK_ENV:-development} -O workers=${NUM_WORKERS:-5} -O threads=${NUM_THREADS:-10}",
+    "dev": "bundle exec foreman start -f Procfile.dev",
+    "test": "bundle exec rspec",
+    "test:debug": "HEADLESS=false FEATURE_TEST_MAX_WAIT_TIME=10 bundle exec rspec"
+  },
+  "files": [
+    "js/{src,dist}/**/*.{js,map}",
+    "scss/**/*.scss",
+    "fonts/**/*.otf"
+  ],
+  "devDependencies": {
+    "jshint": "2.13.5",
+    "stylelint": "14.9.1",
+    "stylelint-config-standard-scss": "5.0.0",
+    "eslint": "8.21.0",
+    "sass": "^1.54",
+    "sass-loader": "^13.0",
+    "webpack": "^5.74",
+    "esbuild": "^0.14"
+  }
+}

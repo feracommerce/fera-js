@@ -1,0 +1,6 @@
+.semaphore-cache
+.vscode
+.rspec
+log
+tmp
+.rubocop-*

@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+# CI node 0 is for linters
+# CI node 1 is for non-feature tests
+# CI node 2 is for feature tests
+
+test_result = if ENV['CI_NODE_INDEX'].to_i == 1 # This is our feature specs node
+                puts "== Running feature tests =="
+                system("bundle exec rspec --pattern \"spec/features/**/*_spec.rb\"")
+              else
+                puts "== Running non-feature tests =="
+                system("bundle exec rspec --exclude-pattern \"spec/features/**/*\"")
+              end
+
+if test_result
+  puts "Tests passed!"
+  exit 0
+else
+  puts "Tests failed!"
+  exit 1
+end

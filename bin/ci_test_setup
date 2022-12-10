@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+if ENV['CI_NODE_INDEX'].to_i == 0
+  puts "== Setting up for linters =="
+  # Nothing really to do here
+else
+  puts "Nothing in ci_test_setup currently, so just continuing"
+end
